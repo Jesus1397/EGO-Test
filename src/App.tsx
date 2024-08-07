@@ -9,7 +9,7 @@ const App: React.FC = () => {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Navigate to="/models" replace />} />
+        <Route path="/" element={<Models />} />
         <Route path="/models" element={<Models />} />
         <Route path="/car/:id" element={<CarDetail />} />
         <Route path="*" element={<Navigate to="/" replace />} />
