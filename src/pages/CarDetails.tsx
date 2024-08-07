@@ -69,44 +69,20 @@ const CarDetail: React.FC = () => {
 
   const CustomLeftArrow: React.FC<ArrowProps> = ({ onClick }) => {
     return (
-      <div
-        onClick={onClick}
-        style={{
-          position: "absolute",
-          left: 0,
-          width: "50px",
-          height: "100%",
-          background: "rgba(0, 0, 0, 0.5)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          cursor: "pointer",
-          zIndex: 1,
-        }}
-      >
-        <span style={{ color: "white", fontSize: "24px" }}>{"<"}</span>
+      <div onClick={onClick} className="custom-arrow left-arrow">
+        <span className="arrow-text">
+          <img src="/arrow-left.svg" alt="" />
+        </span>
       </div>
     );
   };
 
   const CustomRightArrow: React.FC<ArrowProps> = ({ onClick }) => {
     return (
-      <div
-        onClick={onClick}
-        style={{
-          position: "absolute",
-          right: 0,
-          width: "50px",
-          height: "100%",
-          background: "rgba(0, 0, 0, 0.5)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          cursor: "pointer",
-          zIndex: 1,
-        }}
-      >
-        <span style={{ color: "white", fontSize: "24px" }}>{">"}</span>
+      <div onClick={onClick} className="custom-arrow right-arrow">
+        <span className="arrow-text">
+          <img src="/arrow-right.svg" alt="" />
+        </span>
       </div>
     );
   };
@@ -115,14 +91,7 @@ const CarDetail: React.FC = () => {
     return (
       <div
         onClick={onClick}
-        style={{
-          width: active ? "40px" : "8px",
-          height: "8px",
-          borderRadius: "4px",
-          background: active ? "gray" : "lightgray",
-          margin: "0 5px",
-          cursor: "pointer",
-        }}
+        className={`custom-dot ${active ? "active" : "inactive"}`}
       />
     );
   };
@@ -149,7 +118,7 @@ const CarDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div className="carousel-container">
         <Carousel
           arrows
           responsive={responsive}
@@ -161,6 +130,28 @@ const CarDetail: React.FC = () => {
           customDot={<CustomDot onClick={() => {}} index={0} active={false} />}
           className="carousel-box"
         >
+          {[...car.model_features].map((item, index) => (
+            <div className="carousel-card" key={`feature-${index}`}>
+              <img
+                src={item.image}
+                alt={item.name}
+                className="img-fluid carousel-img"
+              />
+              <p className="carousel-title">{item.name}</p>
+              <p className="carousel-description">{item.description}</p>
+            </div>
+          ))}
+          {[...car.model_highlights].map((item, index) => (
+            <div className="carousel-card" key={`highlight-${index}`}>
+              <img
+                src={item.image}
+                alt={item.title}
+                className="img-fluid carousel-img"
+              />
+              <p className="carousel-title">{item.title}</p>
+              <div className="carousel-description">{parse(item.content)}</div>
+            </div>
+          ))}
           {[...car.model_features].map((item, index) => (
             <div className="carousel-card" key={`feature-${index}`}>
               <img

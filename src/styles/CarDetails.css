@@ -31,12 +31,18 @@
 
 .carousel-box {
   background-color: #f7f7f7;
-  padding: 2rem 0;
+  padding: 42px 0;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .carousel-card {
   width: 300px;
-  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .carousel-img {
@@ -61,4 +67,58 @@
   font-weight: 400;
   line-height: 27px;
   letter-spacing: -0.1px;
+  display: -webkit-box;
+  line-clamp: initial;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.custom-arrow {
+  width: 45px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  top: 0%;
+  transform: translateY(30%);
+  position: absolute;
+}
+
+.left-arrow {
+  left: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.right-arrow {
+  right: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.arrow-text {
+  color: white;
+  font-size: 24px;
+}
+
+.custom-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: lightgray;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.custom-dot.active {
+  width: 40px;
+  background: gray;
+}
+
+.carousel-box .react-multi-carousel-dot-list {
+  bottom: 50px;
 }
