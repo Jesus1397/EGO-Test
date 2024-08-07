@@ -88,3 +88,9 @@
   height: 360px;
   min-height: 360px;
 }
+
+@media (max-width: 768px) {
+  .custom-arrow {
+    display: none;
+  }
+}

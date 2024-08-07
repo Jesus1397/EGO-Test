@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Car } from "../models/CarModel";
 import "../styles/CarDetails.css";
@@ -14,7 +14,7 @@ const CarDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [car, setCar] = React.useState<Car | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchCar = async () => {
       try {
         const response = await fetch(
@@ -29,6 +29,10 @@ const CarDetail: React.FC = () => {
 
     fetchCar();
   }, [id]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!car) {
     return <Loading />;
