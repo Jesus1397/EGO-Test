@@ -7,6 +7,7 @@ footer {
   min-height: 50px;
   max-height: 50px;
   background-color: #000000;
+  margin-top: 110px;
 }
 
 ::-webkit-scrollbar {

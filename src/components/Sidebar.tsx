@@ -19,7 +19,7 @@ const Sidebar: React.FC<{ toggled: boolean; onClose: () => void }> = ({
         />
       </button>
       <br />
-      <ul>
+      <ul className="principal">
         <li>
           <Link to="/models" onClick={onClose}>
             Modelos

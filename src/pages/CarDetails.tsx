@@ -98,19 +98,15 @@ const CarDetail: React.FC = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="row align-items-center">
+      <div className="container car-details">
+        <div className="row car-principal">
           <div className="col-md-8">
-            <img
-              src={car.photo}
-              alt={car.name}
-              className="img-fluid details-img"
-            />
+            <img src={car.photo} alt={car.name} className="img-fluid car-img" />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-4 car-description">
             <p className="details-segment">{car.segment}</p>
             <h1 className="details-title">{car.name}</h1>
-            <p className="details-description mt-4">
+            <p className="details-description">
               Texto lorem ipsum dolor sit amet orem ipsum dolor sit amet. lorem
               ipsum dolor sit amet orem ipsum dolor sit amet lorem ipsum dolor
               sit amet orem ipsum dolor sit amet.
@@ -154,8 +150,8 @@ const CarDetail: React.FC = () => {
         </Carousel>
       </div>
       {car.model_highlights.map((highlight, index) => (
-        <div className="container mt-5 mb-5" key={`highlight-section-${index}`}>
-          <div className="row align-items-center">
+        <div className="container" key={`highlight-section-${index}`}>
+          <div className="row align-items-center panel">
             {index % 2 === 0 ? (
               <>
                 <div className="col-md-6 d-flex justify-content-end d-md-none d-block">

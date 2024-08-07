@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white mb-5 ">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white">
         <div className="container-fluid ps-4">
           <Link className="navbar-brand me-4" to="/">
             <img

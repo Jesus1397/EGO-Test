@@ -1,3 +1,20 @@
+.car-principal {
+  height: 100%;
+  margin: 2rem 0;
+}
+
+.car-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.car-img {
+  width: 100%;
+  padding: 0 10%;
+  object-fit: cover;
+}
+
 .details-segment {
   font-size: 20px;
   font-weight: 600;
@@ -12,6 +29,7 @@
   line-height: 57px;
   letter-spacing: -1px;
   text-align: left;
+  margin-bottom: 36px;
 }
 
 .details-description {
@@ -21,12 +39,6 @@
   letter-spacing: -0.1px;
   text-align: left;
   width: 80%;
-}
-
-.details-img {
-  width: 100%;
-  padding: 0 10%;
-  object-fit: cover;
 }
 
 .carousel-box {
@@ -110,22 +122,44 @@
   width: 8px;
   height: 8px;
   border-radius: 4px;
-  background: lightgray;
+  background: #c5c5c5;
+
   margin: 0 5px;
   cursor: pointer;
 }
 
 .custom-dot.active {
   width: 40px;
-  background: gray;
+  background: #4a4a4a;
 }
 .react-multi-carousel-item {
   width: 300px;
   min-width: 300px;
   max-width: 300px;
-  margin: 0 2rem;
+  margin: 0 0.75rem;
 }
 
 .carousel-box .react-multi-carousel-dot-list {
   bottom: 50px;
+}
+
+.panel {
+  margin: 60px 0;
+}
+
+.panel-title {
+  margin-bottom: 14px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: -0.4px;
+}
+
+.panel-description {
+  width: 70%;
+  text-align: start;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.1px;
 }

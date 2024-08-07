@@ -200,7 +200,7 @@ const Models: React.FC = () => {
           </div>
         </div>
 
-        <div className="row mb-5">
+        <div className="row">
           {filteredCars.map((car: Car) => (
             <CarCard key={car.id} car={car} />
           ))}
