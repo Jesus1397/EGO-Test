@@ -27,3 +27,10 @@
   padding: 0 10%;
   object-fit: cover;
 }
+
+.carousel-box {
+  height: 410px;
+  background-color: #f7f7f7;
+  padding: 2rem 0;
+  
+}

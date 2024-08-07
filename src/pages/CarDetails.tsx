@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Car } from "../models/CarModel";
 import "../styles/CarDetails.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const CarDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -24,8 +26,106 @@ const CarDetail: React.FC = () => {
   }, [id]);
 
   if (!car) {
-    return <div>Loading...</div>;
+    return (
+      <div className="container loading">
+        <div className="row align-items-center justify-content-center ">
+          <div className="spinner-border text-secondary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    );
   }
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
+  interface ArrowProps {
+    onClick: () => void;
+  }
+
+  interface CustomDotProps {
+    onClick: () => void;
+    index: number;
+    active: boolean;
+  }
+
+  const CustomLeftArrow: React.FC<ArrowProps> = ({ onClick }) => {
+    return (
+      <div
+        onClick={onClick}
+        style={{
+          position: "absolute",
+          left: 0,
+          width: "50px",
+          height: "100%",
+          background: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          cursor: "pointer",
+          zIndex: 1,
+        }}
+      >
+        <span style={{ color: "white", fontSize: "24px" }}>{"<"}</span>
+      </div>
+    );
+  };
+
+  const CustomRightArrow: React.FC<ArrowProps> = ({ onClick }) => {
+    return (
+      <div
+        onClick={onClick}
+        style={{
+          position: "absolute",
+          right: 0,
+          width: "50px",
+          height: "100%",
+          background: "rgba(0, 0, 0, 0.5)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          cursor: "pointer",
+          zIndex: 1,
+        }}
+      >
+        <span style={{ color: "white", fontSize: "24px" }}>{">"}</span>
+      </div>
+    );
+  };
+
+  const CustomDot: React.FC<CustomDotProps> = ({ onClick, active }) => {
+    return (
+      <div
+        onClick={onClick}
+        style={{
+          width: active ? "40px" : "8px",
+          height: "8px",
+          borderRadius: "4px",
+          background: active ? "gray" : "lightgray",
+          margin: "0 5px",
+          cursor: "pointer",
+        }}
+      />
+    );
+  };
 
   return (
     <>
@@ -49,66 +149,42 @@ const CarDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="p-0 m-0 row bg-light">
-        <div id="carouselExampleIndicators" className="carousel slide">
-          <div className="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="0"
-              className="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img src={"dsds"} alt={car.name} className="d-block w-100" />
+      <div className="carousel-box">
+        <Carousel
+          arrows
+          responsive={responsive}
+          showDots={true}
+          infinite={true}
+          centerMode={true}
+          customLeftArrow={<CustomLeftArrow onClick={() => {}} />}
+          customRightArrow={<CustomRightArrow onClick={() => {}} />}
+          customDot={<CustomDot onClick={() => {}} index={0} active={false} />}
+        >
+          {[...car.model_features].map((item, index) => (
+            <div className="carousel-card">
+              <img
+                key={index}
+                src={item.image}
+                alt={item.name}
+                className="img-fluid details-img"
+              />
+              <p>{item.name}</p>
+              <p>{item.description}</p>
             </div>
-            <div className="carousel-item">
-              <img src={"dsds"} alt={car.name} className="d-block w-100" />
+          ))}
+          {[...car.model_highlights].map((item, index) => (
+            <div className="carousel-card">
+              <img
+                key={index}
+                src={item.image}
+                alt={item.title}
+                className="img-fluid details-img"
+              />
+              <p>{item.title}</p>
+              <p>{item.content}</p>
             </div>
-            <div className="carousel-item">
-              <img src={"dsds"} alt={car.name} className="d-block w-100" />
-            </div>
-          </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
-        </div>
+          ))}
+        </Carousel>
       </div>
       <div className="container mt-4 bg-light">
         <div className="row align-items-center ">
@@ -124,7 +200,6 @@ const CarDetail: React.FC = () => {
           </div>
         </div>
       </div>
-
       <div className="container mt-4">
         <div className="row align-items-center">
           <div className="col-md-6">

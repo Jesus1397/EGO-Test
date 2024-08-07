@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Backdrop from "./Backdrop";
 import "../styles/Navbar.css";
 
 const Navbar: React.FC = () => {
   const [toggled, setToggled] = React.useState(false);
+  const location = useLocation();
 
   return (
     <>

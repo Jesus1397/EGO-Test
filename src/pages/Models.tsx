@@ -50,8 +50,12 @@ const Models: React.FC = () => {
     // Ordenar
     if (sort === "price") {
       updatedCars.sort((a, b) => a.price - b.price);
-    } else if (sort === "year") {
+    } else if (sort === "year-newest") {
       updatedCars.sort((a, b) => b.year! - a.year!);
+    } else if (sort === "year-oldest") {
+      updatedCars.sort((a, b) => a.year! - b.year!);
+    } else if (sort === "price-desc") {
+      updatedCars.sort((a, b) => b.price - a.price);
     }
 
     setFilteredCars(updatedCars);
@@ -61,12 +65,18 @@ const Models: React.FC = () => {
     setFilter(newFilter);
   };
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSort(event.target.value);
+  const handleSortChange = (sortValue: string) => {
+    setSort(sortValue);
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    <div className="container loading">
+      <div className="row align-items-center justify-content-center">
+        <div className="spinner-border text-secondary" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>;
   }
 
   if (error) {
@@ -92,17 +102,57 @@ const Models: React.FC = () => {
             ))}
           </div>
           <div className="dropdown">
-            <label htmlFor="sort">Ordenar por: </label>
-            <select
-              id="sort"
-              className="sort-dropdown"
-              value={sort}
-              onChange={handleSortChange}
+            <button
+              className="btn dropdown-toggle sort-button"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
             >
-              <option value="default">Seleccione</option>
-              <option value="price">Precio</option>
-              <option value="year">Año</option>
-            </select>
+              Ordenar por ▼
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li>
+                <button
+                  className="dropdown-item"
+                  onClick={() => handleSortChange("")}
+                >
+                  Nada
+                </button>
+              </li>
+              <li>
+                <button
+                  className="dropdown-item"
+                  onClick={() => handleSortChange("price")}
+                >
+                  De <strong>menor</strong> a <strong>mayor</strong> precio
+                </button>
+              </li>
+              <li>
+                <button
+                  className="dropdown-item"
+                  onClick={() => handleSortChange("price-desc")}
+                >
+                  De <strong>mayor</strong> a <strong>menor</strong> precio
+                </button>
+              </li>
+              <li>
+                <button
+                  className="dropdown-item"
+                  onClick={() => handleSortChange("year-newest")}
+                >
+                  Más <strong>nuevos</strong> primero
+                </button>
+              </li>
+              <li>
+                <button
+                  className="dropdown-item"
+                  onClick={() => handleSortChange("year-oldest")}
+                >
+                  Más <strong>viejos</strong> primero
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
 
