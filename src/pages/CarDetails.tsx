@@ -44,7 +44,6 @@ const CarDetail: React.FC = () => {
           </div>
         </div>
       </div>
-
       <div className="panel-box">
         {car.model_highlights.map((highlight, index) => (
           <div className="container" key={`highlight-section-${index}`}>
