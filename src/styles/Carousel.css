@@ -1,0 +1,90 @@
+.slider-container {
+  background-color: #f7f7f7;
+  padding: 42px 0 0 0;
+  height: 460px;
+}
+
+.carousel-card {
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.carousel-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  min-height: 146px;
+  max-height: 146px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.carousel-title {
+  margin-bottom: 18px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: -0.4px;
+}
+
+.carousel-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: -0.1px;
+  display: -webkit-box;
+  line-clamp: initial;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.custom-arrow {
+  width: 45px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  top: 0%;
+  transform: translateY(30%);
+  position: absolute;
+}
+
+.left-arrow {
+  left: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.right-arrow {
+  right: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.arrow-text {
+  color: white;
+  font-size: 24px;
+}
+
+.custom-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: #c5c5c5;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.custom-dot.active {
+  width: 40px;
+  background: #4a4a4a;
+}
+
+.react-multi-carousel-track {
+  height: 360px;
+  min-height: 360px;
+}

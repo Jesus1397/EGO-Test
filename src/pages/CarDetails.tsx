@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Car } from "../models/CarModel";
 import "../styles/CarDetails.css";
-import "react-multi-carousel/lib/styles.css";
 import parse from "html-react-parser";
 import Loading from "../components/Loading";
+import CarouselCustom from "../components/Carousel";
 
 const CarDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -44,6 +44,7 @@ const CarDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      <CarouselCustom car={car} />
       <div className="panel-box">
         {car.model_highlights.map((highlight, index) => (
           <div className="container" key={`highlight-section-${index}`}>
