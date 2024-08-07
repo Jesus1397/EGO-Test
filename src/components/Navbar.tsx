@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
         <div className="container-fluid ps-md-4">
           <Link className="navbar-brand me-4" to="/">
             <img
-              src="/public/Ego-logo.svg"
+              src="/logo.png"
               alt="Logo"
               width={38}
               height={40}
@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
           >
             Menú
             <img
-              src="/public/menu.svg"
+              src="/menu.png"
               alt="menu"
               height={18}
               className="d-inline-block align-text-top ps-2 "
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
                 >
                   Menú
                   <img
-                    src="/public/menu.svg"
+                    src="/menu.png"
                     alt="menu"
                     height={18}
                     className="d-inline-block align-text-top ps-2 ms-1"

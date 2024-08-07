@@ -59,7 +59,7 @@ const CarDetail: React.FC = () => {
                 <>
                   <div className="col-md-6 d-flex justify-content-end d-md-none d-block">
                     <img
-                      src="/public/car-1.svg"
+                      src="/car-1.png"
                       alt={highlight.title}
                       className="img-fluid"
                     />
@@ -72,7 +72,7 @@ const CarDetail: React.FC = () => {
                   </div>
                   <div className="col-md-6 d-flex justify-content-end d-md-block d-none">
                     <img
-                      src="/public/car-1.svg"
+                      src="/car-1.png"
                       alt={highlight.title}
                       className="img-fluid"
                     />
@@ -82,7 +82,7 @@ const CarDetail: React.FC = () => {
                 <>
                   <div className="col-md-6 d-flex justify-content-start">
                     <img
-                      src="/public/car-2.svg"
+                      src="/car-2.png"
                       alt={highlight.title}
                       className="img-fluid"
                     />

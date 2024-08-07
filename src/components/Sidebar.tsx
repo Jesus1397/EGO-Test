@@ -11,7 +11,7 @@ const Sidebar: React.FC<{ toggled: boolean; onClose: () => void }> = ({
       <button className="close-btn" onClick={onClose}>
         Cerrar
         <img
-          src="/public/cerrar.svg"
+          src="/close.png"
           alt="Logo"
           width={15}
           height={15}
