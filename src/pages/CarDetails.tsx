@@ -158,13 +158,20 @@ const CarDetail: React.FC = () => {
           <div className="row align-items-center">
             {index % 2 === 0 ? (
               <>
+                <div className="col-md-6 d-flex justify-content-end d-md-none d-block">
+                  <img
+                    src="/car-1.svg"
+                    alt={highlight.title}
+                    className="img-fluid"
+                  />
+                </div>
                 <div className="col-md-6 text-left">
                   <h2 className="panel-title">{highlight.title}</h2>
                   <div className="panel-description">
                     {parse(highlight.content)}
                   </div>
                 </div>
-                <div className="col-md-6 d-flex justify-content-end">
+                <div className="col-md-6 d-flex justify-content-end d-md-block d-none">
                   <img
                     src="/car-1.svg"
                     alt={highlight.title}

@@ -10,7 +10,9 @@ const Models: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>("Todos");
   const [sort, setSort] = useState<string>("default");
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false); // Nuevo estado
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const [isFilterDropdownOpen, setIsFilterDropdownOpen] =
+    useState<boolean>(false);
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -90,7 +92,7 @@ const Models: React.FC = () => {
         <h2 className="model-title mb-5">Descubrí todos los modelos</h2>
 
         <div className="filter-section mb-5 pb-3">
-          <div className="filter-box">
+          <div className="filter-box d-none d-md-block">
             <span className="me-5">Filtrar por:</span>
             {["Todos", "Autos", "Pickups y Comerciales", "SUVs"].map((f) => (
               <button
@@ -102,12 +104,45 @@ const Models: React.FC = () => {
               </button>
             ))}
           </div>
-          <div className="dropdown">
+          <div className="dropdown dropend d-block d-md-none">
             <button
-              className="btn dropdown-toggle sort-button"
+              className="btn sort-button"
+              type="button"
+              id="filterDropdownButton"
+              aria-expanded={isFilterDropdownOpen ? "true" : "false"}
+              onClick={() => setIsFilterDropdownOpen(!isFilterDropdownOpen)}
+            >
+              Filtrar por {""}
+              <img
+                src={isFilterDropdownOpen ? "/arrow-up.svg" : "/arrow-down.svg"}
+                alt="Filter button"
+                className="d-inline-block"
+              />
+            </button>
+            <ul
+              className={`dropdown-menu ${isFilterDropdownOpen ? "show" : ""}`}
+              aria-labelledby="filterDropdownButton"
+            >
+              {["Todos", "Autos", "Pickups y Comerciales", "SUVs"].map((f) => (
+                <li key={f}>
+                  <button
+                    className={`dropdown-item`}
+                    onClick={() => {
+                      handleFilterClick(f);
+                      setIsFilterDropdownOpen(false);
+                    }}
+                  >
+                    {f}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="dropdown dropstart">
+            <button
+              className="btn sort-button"
               type="button"
               id="dropdownMenuButton"
-              data-bs-toggle="dropdown"
               aria-expanded={isDropdownOpen ? "true" : "false"}
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
@@ -119,9 +154,8 @@ const Models: React.FC = () => {
               />
             </button>
             <ul
-              className="dropdown-menu"
+              className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}
               aria-labelledby="dropdownMenuButton"
-              onClick={() => setIsDropdownOpen(false)}
             >
               <li>
                 <button

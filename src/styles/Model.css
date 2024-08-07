@@ -85,9 +85,10 @@
   font-weight: 400;
   line-height: 35px;
   letter-spacing: -0.1px;
-
   list-style: none;
   border: none;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -122,4 +123,14 @@
 
 .dropdown-toggle::after {
   display: none;
+}
+
+.dropstart .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+.dropend .dropdown-menu {
+  left: 0;
+  right: auto;
 }
