@@ -129,7 +129,7 @@ const CarDetail: React.FC = () => {
 
   return (
     <>
-      <div className="container ">
+      <div className="container">
         <div className="row align-items-center">
           <div className="col-md-8">
             <img
@@ -149,7 +149,7 @@ const CarDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="carousel-box">
+      <div className="">
         <Carousel
           arrows
           responsive={responsive}
@@ -159,16 +159,17 @@ const CarDetail: React.FC = () => {
           customLeftArrow={<CustomLeftArrow onClick={() => {}} />}
           customRightArrow={<CustomRightArrow onClick={() => {}} />}
           customDot={<CustomDot onClick={() => {}} index={0} active={false} />}
+          className="carousel-box"
         >
           {[...car.model_features].map((item, index) => (
             <div className="carousel-card" key={`feature-${index}`}>
               <img
                 src={item.image}
                 alt={item.name}
-                className="img-fluid details-img"
+                className="img-fluid carousel-img"
               />
-              <p>{item.name}</p>
-              <p>{item.description}</p>
+              <p className="carousel-title">{item.name}</p>
+              <p className="carousel-description">{item.description}</p>
             </div>
           ))}
           {[...car.model_highlights].map((item, index) => (
@@ -176,50 +177,53 @@ const CarDetail: React.FC = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="img-fluid details-img"
+                className="img-fluid carousel-img"
               />
-              <p>{item.title}</p>
-              <div>{parse(item.content)}</div>
+              <p className="carousel-title">{item.title}</p>
+              <div className="carousel-description">{parse(item.content)}</div>
             </div>
           ))}
         </Carousel>
       </div>
-      <div className="container mt-5 mb-5">
-        <div className="row align-items-center">
-          <div className="col-md-6 text-left">
-            <h2 className="panel-title">Título del Panel</h2>
-            <p className="panel-description">
-              Descripción del panel. Aquí puedes agregar más detalles o
-              información relevante.
-            </p>
-          </div>
-          <div className="col-md-6">
-            <img
-              src="/car-1.svg"
-              alt="Texto alternativo"
-              className="img-fluid"
-            />
+      {car.model_highlights.map((highlight, index) => (
+        <div className="container mt-5 mb-5" key={`highlight-section-${index}`}>
+          <div className="row align-items-center">
+            {index % 2 === 0 ? (
+              <>
+                <div className="col-md-6 text-left">
+                  <h2 className="panel-title">{highlight.title}</h2>
+                  <div className="panel-description">
+                    {parse(highlight.content)}
+                  </div>
+                </div>
+                <div className="col-md-6 d-flex justify-content-end">
+                  <img
+                    src="/car-1.svg"
+                    alt={highlight.title}
+                    className="img-fluid"
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="col-md-6 d-flex justify-content-start">
+                  <img
+                    src="/car-2.svg"
+                    alt={highlight.title}
+                    className="img-fluid"
+                  />
+                </div>
+                <div className="col-md-6 text-left">
+                  <h2 className="panel-title">{highlight.title}</h2>
+                  <div className="panel-description">
+                    {parse(highlight.content)}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
-      </div>
-      <div className="container mt-5 mb-5">
-        <div className="row align-items-center">
-          <div className="col-md-6">
-            <img
-              src="/car-2.svg"
-              alt="Texto alternativo"
-              className="img-fluid"
-            />
-          </div>
-          <div className="col-md-6 text-left">
-            <h2 className="panel-title">Título del Panel</h2>
-            <p className="panel-description">
-              Descripción del panel. Aquí puedes agregar más detalles o
-              información relevante.
-            </p>
-          </div>
-        </div>
-      </div>
+      ))}
     </>
   );
 };
