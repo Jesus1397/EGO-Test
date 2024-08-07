@@ -22,7 +22,7 @@ const CustomLeftArrow: React.FC<ArrowProps> = ({ onClick }) => {
   return (
     <div onClick={onClick} className="custom-arrow left-arrow">
       <span className="arrow-text">
-        <img src="/public/arrow-left.svg" alt="" />
+        <img src="/assets/arrow-left.svg" alt="" />
       </span>
     </div>
   );
