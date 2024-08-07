@@ -1,0 +1,40 @@
+.model-title {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -1px;
+}
+
+.filter-section {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter-box span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0.08px;
+}
+
+.filter-button {
+  margin-left: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.08px;
+  text-align: center;
+}
+
+.sort-dropdown {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0.08px;
+}

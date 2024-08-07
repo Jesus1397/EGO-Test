@@ -1,5 +1,5 @@
 {
-  "name": "react-car-showcase",
+  "name": "EGO-Test",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +13,7 @@
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
