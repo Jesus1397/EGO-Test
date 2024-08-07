@@ -37,7 +37,6 @@ const Models: React.FC = () => {
   useEffect(() => {
     let updatedCars = [...cars];
 
-    // Filtrar
     if (filter !== "Todos") {
       if (filter === "Autos") {
         updatedCars = updatedCars.filter(
@@ -48,7 +47,6 @@ const Models: React.FC = () => {
       }
     }
 
-    // Ordenar
     if (sort === "price") {
       updatedCars.sort((a, b) => a.price - b.price);
     } else if (sort === "year-newest") {

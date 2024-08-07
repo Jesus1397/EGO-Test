@@ -60,7 +60,8 @@
 .btn-menu:focus,
 .btn-menu:active,
 .navbar-toggler:focus,
-.navbar-toggler:active {
+.navbar-toggler:active,
+.btn.btn-menu.navbar-toggler {
   outline: none;
   box-shadow: none;
   border: none;

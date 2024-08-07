@@ -43,6 +43,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  margin: 0 1rem; /* Reduce the margin between cards */
 }
 
 .carousel-img {
@@ -117,6 +118,12 @@
 .custom-dot.active {
   width: 40px;
   background: gray;
+}
+.react-multi-carousel-item {
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  margin: 0 2rem;
 }
 
 .carousel-box .react-multi-carousel-dot-list {

@@ -123,35 +123,12 @@ const CarDetail: React.FC = () => {
           arrows
           responsive={responsive}
           showDots={true}
-          infinite={true}
           centerMode={true}
           customLeftArrow={<CustomLeftArrow onClick={() => {}} />}
           customRightArrow={<CustomRightArrow onClick={() => {}} />}
           customDot={<CustomDot onClick={() => {}} index={0} active={false} />}
           className="carousel-box"
         >
-          {[...car.model_features].map((item, index) => (
-            <div className="carousel-card" key={`feature-${index}`}>
-              <img
-                src={item.image}
-                alt={item.name}
-                className="img-fluid carousel-img"
-              />
-              <p className="carousel-title">{item.name}</p>
-              <p className="carousel-description">{item.description}</p>
-            </div>
-          ))}
-          {[...car.model_highlights].map((item, index) => (
-            <div className="carousel-card" key={`highlight-${index}`}>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="img-fluid carousel-img"
-              />
-              <p className="carousel-title">{item.title}</p>
-              <div className="carousel-description">{parse(item.content)}</div>
-            </div>
-          ))}
           {[...car.model_features].map((item, index) => (
             <div className="carousel-card" key={`feature-${index}`}>
               <img
