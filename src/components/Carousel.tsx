@@ -22,7 +22,7 @@ const CustomLeftArrow: React.FC<ArrowProps> = ({ onClick }) => {
   return (
     <div onClick={onClick} className="custom-arrow left-arrow">
       <span className="arrow-text">
-        <img src="/arrow-left.svg" alt="" />
+        <img src="/public/arrow-left.svg" alt="" />
       </span>
     </div>
   );
@@ -32,7 +32,7 @@ const CustomRightArrow: React.FC<ArrowProps> = ({ onClick }) => {
   return (
     <div onClick={onClick} className="custom-arrow right-arrow">
       <span className="arrow-text">
-        <img src="/arrow-right.svg" alt="" />
+        <img src="/public/arrow-right.svg" alt="" />
       </span>
     </div>
   );

@@ -36,7 +36,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
         >
           Filtrar por {""}
           <img
-            src={isFilterDropdownOpen ? "/arrow-up.svg" : "/arrow-down.svg"}
+            src={isFilterDropdownOpen ? "/public/arrow-up.svg" : "/public/arrow-down.svg"}
             alt="Filter button"
             className="d-inline-block"
           />
@@ -70,7 +70,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
         >
           Ordenar por {""}
           <img
-            src={isDropdownOpen ? "/arrow-up.svg" : "/arrow-down.svg"}
+            src={isDropdownOpen ? "/public/arrow-up.svg" : "/public/arrow-down.svg"}
             alt="Sort button"
             className="d-inline-block"
           />

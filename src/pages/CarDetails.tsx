@@ -6,6 +6,10 @@ import parse from "html-react-parser";
 import Loading from "../components/Loading";
 import CarouselCustom from "../components/Carousel";
 
+const replacePTags = (html: string) => {
+  return html.replace(/<p>/g, "<div>").replace(/<\/p>/g, "</div>");
+};
+
 const CarDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [car, setCar] = React.useState<Car | null>(null);
@@ -40,7 +44,9 @@ const CarDetail: React.FC = () => {
           <div className="col-md-4 car-description">
             <p className="details-segment">{car.segment}</p>
             <h1 className="details-title">{car.name}</h1>
-            <p className="details-description">{parse(car.description!)}</p>
+            <div className="details-description">
+              {parse(replacePTags(car.description!))}
+            </div>
           </div>
         </div>
       </div>
@@ -53,7 +59,7 @@ const CarDetail: React.FC = () => {
                 <>
                   <div className="col-md-6 d-flex justify-content-end d-md-none d-block">
                     <img
-                      src="/car-1.svg"
+                      src="/public/car-1.svg"
                       alt={highlight.title}
                       className="img-fluid"
                     />
@@ -61,12 +67,12 @@ const CarDetail: React.FC = () => {
                   <div className="col-md-6 text-left">
                     <h2 className="panel-title">{highlight.title}</h2>
                     <div className="panel-description">
-                      {parse(highlight.content)}
+                      {parse(replacePTags(highlight.content))}
                     </div>
                   </div>
                   <div className="col-md-6 d-flex justify-content-end d-md-block d-none">
                     <img
-                      src="/car-1.svg"
+                      src="/public/car-1.svg"
                       alt={highlight.title}
                       className="img-fluid"
                     />
@@ -76,7 +82,7 @@ const CarDetail: React.FC = () => {
                 <>
                   <div className="col-md-6 d-flex justify-content-start">
                     <img
-                      src="/car-2.svg"
+                      src="/public/car-2.svg"
                       alt={highlight.title}
                       className="img-fluid"
                     />
@@ -84,7 +90,7 @@ const CarDetail: React.FC = () => {
                   <div className="col-md-6 text-left">
                     <h2 className="panel-title">{highlight.title}</h2>
                     <div className="panel-description">
-                      {parse(highlight.content)}
+                      {parse(replacePTags(highlight.content))}
                     </div>
                   </div>
                 </>
