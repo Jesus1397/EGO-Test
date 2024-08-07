@@ -10,9 +10,9 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-transparent mb-5">
-        <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white mb-5 ">
+        <div className="container-fluid ps-4">
+          <Link className="navbar-brand me-4" to="/">
             <img
               src="/Ego-logo.svg"
               alt="Logo"
@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
               src="/menu.svg"
               alt="menu"
               height={18}
-              className="d-inline-block align-text-top ps-2"
+              className="d-inline-block align-text-top ps-2 "
             />
           </button>
           <div className="collapse navbar-collapse ms-lg-5" id="navbarNav">
@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
                     src="/menu.svg"
                     alt="menu"
                     height={18}
-                    className="d-inline-block align-text-top ps-2"
+                    className="d-inline-block align-text-top ps-2 ms-1"
                   />
                 </button>
               </li>

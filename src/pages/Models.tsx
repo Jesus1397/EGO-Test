@@ -89,15 +89,14 @@ const Models: React.FC = () => {
   return (
     <>
       <div className="container model">
-        <h2 className="model-title mb-5">Descubrí todos los modelos</h2>
-
-        <div className="filter-section mb-5 pb-3">
+        <h2 className="model-title">Descubrí todos los modelos</h2>
+        <div className="filter-section">
           <div className="filter-box d-none d-md-block">
-            <span className="me-5">Filtrar por:</span>
+            <span className="filter-span">Filtrar por:</span>
             {["Todos", "Autos", "Pickups y Comerciales", "SUVs"].map((f) => (
               <button
                 key={f}
-                className={`filter-button me-5 ${filter === f ? "active" : ""}`}
+                className={`filter-button ${filter === f ? "active" : ""}`}
                 onClick={() => handleFilterClick(f)}
               >
                 {f}

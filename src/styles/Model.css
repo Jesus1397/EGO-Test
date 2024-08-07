@@ -3,6 +3,8 @@
 }
 
 .model-title {
+  margin-top: 85px;
+  margin-bottom: 72px;
   font-size: 50px;
   font-weight: 700;
   line-height: 1.14;
@@ -15,6 +17,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 75px;
 }
 
 .filter-box span {
@@ -25,7 +28,6 @@
 }
 
 .filter-button {
-  margin-left: 10px;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -37,6 +39,7 @@
   background-color: transparent;
   border-radius: 20px;
   padding: 0.5rem 1rem;
+  margin-right: 45px;
 }
 
 .sort-dropdown {
@@ -50,6 +53,10 @@
   background-color: #f7f7f7;
   border-radius: 20px;
   /* padding: 0.5rem 1rem; */
+}
+
+.filter-span {
+  margin-right: 45px;
 }
 
 /* main.css */

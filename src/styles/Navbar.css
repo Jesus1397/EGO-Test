@@ -7,6 +7,14 @@
   max-height: 70px;
 }
 
+@media (max-width: 992px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+}
+
 .navbar-brand,
 .navbar-collapse,
 .navbar-nav,
