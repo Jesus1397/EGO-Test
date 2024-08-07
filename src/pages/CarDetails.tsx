@@ -2,9 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Car } from "../models/CarModel";
 import "../styles/CarDetails.css";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import parse from "html-react-parser";
+import Loading from "../components/Loading";
 
 const CarDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -27,74 +27,8 @@ const CarDetail: React.FC = () => {
   }, [id]);
 
   if (!car) {
-    return (
-      <div className="container loading">
-        <div className="row align-items-center justify-content-center ">
-          <div className="spinner-border text-secondary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </div>
-    );
+    return <Loading />;
   }
-
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-  };
-
-  interface ArrowProps {
-    onClick: () => void;
-  }
-
-  interface CustomDotProps {
-    onClick: () => void;
-    index: number;
-    active: boolean;
-  }
-
-  const CustomLeftArrow: React.FC<ArrowProps> = ({ onClick }) => {
-    return (
-      <div onClick={onClick} className="custom-arrow left-arrow">
-        <span className="arrow-text">
-          <img src="/arrow-left.svg" alt="" />
-        </span>
-      </div>
-    );
-  };
-
-  const CustomRightArrow: React.FC<ArrowProps> = ({ onClick }) => {
-    return (
-      <div onClick={onClick} className="custom-arrow right-arrow">
-        <span className="arrow-text">
-          <img src="/arrow-right.svg" alt="" />
-        </span>
-      </div>
-    );
-  };
-
-  const CustomDot: React.FC<CustomDotProps> = ({ onClick, active }) => {
-    return (
-      <div
-        onClick={onClick}
-        className={`custom-dot ${active ? "active" : "inactive"}`}
-      />
-    );
-  };
 
   return (
     <>
@@ -110,39 +44,7 @@ const CarDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <Carousel
-        arrows
-        responsive={responsive}
-        showDots={true}
-        centerMode={true}
-        customLeftArrow={<CustomLeftArrow onClick={() => {}} />}
-        customRightArrow={<CustomRightArrow onClick={() => {}} />}
-        customDot={<CustomDot onClick={() => {}} index={0} active={false} />}
-        className="carousel-box"
-      >
-        {[...car.model_features].map((item, index) => (
-          <div className="carousel-card" key={`feature-${index}`}>
-            <img
-              src={item.image}
-              alt={item.name}
-              className="img-fluid carousel-img"
-            />
-            <p className="carousel-title">{item.name}</p>
-            <p className="carousel-description">{item.description}</p>
-          </div>
-        ))}
-        {[...car.model_highlights].map((item, index) => (
-          <div className="carousel-card" key={`highlight-${index}`}>
-            <img
-              src={item.image}
-              alt={item.title}
-              className="img-fluid carousel-img"
-            />
-            <p className="carousel-title">{item.title}</p>
-            <div className="carousel-description">{parse(item.content)}</div>
-          </div>
-        ))}
-      </Carousel>
+
       <div className="panel-box">
         {car.model_highlights.map((highlight, index) => (
           <div className="container" key={`highlight-section-${index}`}>

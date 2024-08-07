@@ -20,8 +20,8 @@
   max-height: 215px;
   transition: border-color 0.3s ease;
   box-sizing: border-box;
-  position: relative; /* Asegura que .view-model-button esté posicionado correctamente */
-  overflow: hidden; /* Para ocultar el botón al principio */
+  position: relative;
+  overflow: hidden;
 }
 
 .custom-card:hover .card-title {

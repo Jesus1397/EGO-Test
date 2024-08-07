@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import CarCard from "../components/CarCard";
 import { Car } from "../models/CarModel";
 import "../styles/Model.css";
+import FilterSection from "../components/Filters";
+import Loading from "../components/Loading";
 
 const Models: React.FC = () => {
   const [cars, setCars] = useState<Car[]>([]);
   const [filteredCars, setFilteredCars] = useState<Car[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>("Todos");
   const [sort, setSort] = useState<string>("default");
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
@@ -27,9 +27,7 @@ const Models: React.FC = () => {
         setCars(data);
         setFilteredCars(data);
       } catch (error) {
-        setError("Error");
-      } finally {
-        setLoading(false);
+        console.error("Error fetching car data:", error);
       }
     };
 
@@ -70,136 +68,24 @@ const Models: React.FC = () => {
     setSort(sortValue);
   };
 
-  if (loading) {
-    return (
-      <div className="container loading">
-        <div className="row align-items-center justify-content-center">
-          <div className="spinner-border text-secondary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
+  if (!cars) {
+    return <Loading />;
   }
 
   return (
     <>
       <div className="container model">
         <h2 className="model-title">Descubrí todos los modelos</h2>
-        <div className="filter-section">
-          <div className="filter-box d-none d-md-block">
-            <span className="filter-span">Filtrar por:</span>
-            {["Todos", "Autos", "Pickups y Comerciales", "SUVs"].map((f) => (
-              <button
-                key={f}
-                className={`filter-button ${filter === f ? "active" : ""}`}
-                onClick={() => handleFilterClick(f)}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-          <div className="dropdown dropend d-block d-md-none">
-            <button
-              className="btn sort-button"
-              type="button"
-              id="filterDropdownButton"
-              aria-expanded={isFilterDropdownOpen ? "true" : "false"}
-              onClick={() => setIsFilterDropdownOpen(!isFilterDropdownOpen)}
-            >
-              Filtrar por {""}
-              <img
-                src={isFilterDropdownOpen ? "/arrow-up.svg" : "/arrow-down.svg"}
-                alt="Filter button"
-                className="d-inline-block"
-              />
-            </button>
-            <ul
-              className={`dropdown-menu ${isFilterDropdownOpen ? "show" : ""}`}
-              aria-labelledby="filterDropdownButton"
-            >
-              {["Todos", "Autos", "Pickups y Comerciales", "SUVs"].map((f) => (
-                <li key={f}>
-                  <button
-                    className={`dropdown-item`}
-                    onClick={() => {
-                      handleFilterClick(f);
-                      setIsFilterDropdownOpen(false);
-                    }}
-                  >
-                    {f}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="dropdown dropstart">
-            <button
-              className="btn sort-button"
-              type="button"
-              id="dropdownMenuButton"
-              aria-expanded={isDropdownOpen ? "true" : "false"}
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            >
-              Ordenar por {""}
-              <img
-                src={isDropdownOpen ? "/arrow-up.svg" : "/arrow-down.svg"}
-                alt="Sort button"
-                className="d-inline-block"
-              />
-            </button>
-            <ul
-              className={`dropdown-menu ${isDropdownOpen ? "show" : ""}`}
-              aria-labelledby="dropdownMenuButton"
-            >
-              <li>
-                <button
-                  className="dropdown-item"
-                  onClick={() => handleSortChange("")}
-                >
-                  Nada
-                </button>
-              </li>
-              <li>
-                <button
-                  className="dropdown-item"
-                  onClick={() => handleSortChange("price")}
-                >
-                  De <strong>menor</strong> a <strong>mayor</strong> precio
-                </button>
-              </li>
-              <li>
-                <button
-                  className="dropdown-item"
-                  onClick={() => handleSortChange("price-desc")}
-                >
-                  De <strong>mayor</strong> a <strong>menor</strong> precio
-                </button>
-              </li>
-              <li>
-                <button
-                  className="dropdown-item"
-                  onClick={() => handleSortChange("year-newest")}
-                >
-                  Más <strong>nuevos</strong> primero
-                </button>
-              </li>
-              <li>
-                <button
-                  className="dropdown-item"
-                  onClick={() => handleSortChange("year-oldest")}
-                >
-                  Más <strong>viejos</strong> primero
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-
+        <FilterSection
+          filter={filter}
+          sort={sort}
+          isDropdownOpen={isDropdownOpen}
+          isFilterDropdownOpen={isFilterDropdownOpen}
+          handleFilterClick={handleFilterClick}
+          handleSortChange={handleSortChange}
+          setIsDropdownOpen={setIsDropdownOpen}
+          setIsFilterDropdownOpen={setIsFilterDropdownOpen}
+        />
         <div className="row">
           {filteredCars.map((car: Car) => (
             <CarCard key={car.id} car={car} />

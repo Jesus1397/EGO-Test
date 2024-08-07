@@ -41,108 +41,6 @@
   width: 80%;
 }
 
-.carousel-box {
-  background-color: #f7f7f7;
-  padding: 42px 0;
-  height: 460px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.carousel-card {
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: 0 1rem; /* Reduce the margin between cards */
-}
-
-.carousel-img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  max-height: 146px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.carousel-title {
-  margin-bottom: 18px;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 27px;
-  letter-spacing: -0.4px;
-}
-
-.carousel-description {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 27px;
-  letter-spacing: -0.1px;
-  display: -webkit-box;
-  line-clamp: initial;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.custom-arrow {
-  width: 45px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 1;
-  top: 0%;
-  transform: translateY(30%);
-  position: absolute;
-}
-
-.left-arrow {
-  left: 0;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.right-arrow {
-  right: 0;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.arrow-text {
-  color: white;
-  font-size: 24px;
-}
-
-.custom-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background: #c5c5c5;
-
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.custom-dot.active {
-  width: 40px;
-  background: #4a4a4a;
-}
-.react-multi-carousel-item {
-  width: 300px;
-  min-width: 300px;
-  max-width: 300px;
-  margin: 0 0.75rem;
-}
-
-.carousel-box .react-multi-carousel-dot-list {
-  bottom: 50px;
-}
-
 .panel {
   margin: 60px 0;
 }
@@ -181,26 +79,6 @@
   .details-description,
   .details-description p {
     margin-bottom: 0px;
-  }
-
-  .carousel-box {
-    padding: 50px 0 52px 0;
-  }
-
-  .carousel-img {
-    margin-bottom: 22px;
-  }
-
-  .carousel-title {
-    margin-bottom: 20px;
-  }
-
-  .left-arrow {
-    display: none;
-  }
-
-  .right-arrow {
-    display: none;
   }
 
   .panel {
