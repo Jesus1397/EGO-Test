@@ -10,6 +10,7 @@ const Models: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>("Todos");
   const [sort, setSort] = useState<string>("default");
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false); // Nuevo estado
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -70,13 +71,15 @@ const Models: React.FC = () => {
   };
 
   if (loading) {
-    <div className="container loading">
-      <div className="row align-items-center justify-content-center">
-        <div className="spinner-border text-secondary" role="status">
-          <span className="visually-hidden">Loading...</span>
+    return (
+      <div className="container loading">
+        <div className="row align-items-center justify-content-center">
+          <div className="spinner-border text-secondary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
         </div>
       </div>
-    </div>;
+    );
   }
 
   if (error) {
@@ -107,11 +110,21 @@ const Models: React.FC = () => {
               type="button"
               id="dropdownMenuButton"
               data-bs-toggle="dropdown"
-              aria-expanded="false"
+              aria-expanded={isDropdownOpen ? "true" : "false"}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
-              Ordenar por ▼
+              Ordenar por {""}
+              <img
+                src={isDropdownOpen ? "/arrow-up.svg" : "/arrow-down.svg"}
+                alt="Sort button"
+                className="d-inline-block"
+              />
             </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <ul
+              className="dropdown-menu"
+              aria-labelledby="dropdownMenuButton"
+              onClick={() => setIsDropdownOpen(false)}
+            >
               <li>
                 <button
                   className="dropdown-item"

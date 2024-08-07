@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Models from "./pages/Models";
 import CarDetail from "./pages/CarDetails";
@@ -9,7 +9,7 @@ const App: React.FC = () => {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Models />} />
+        <Route path="/" element={<Navigate to="/models" replace />} />
         <Route path="/models" element={<Models />} />
         <Route path="/car/:id" element={<CarDetail />} />
       </Routes>

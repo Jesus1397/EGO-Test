@@ -4,6 +4,7 @@ import { Car } from "../models/CarModel";
 import "../styles/CarDetails.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import parse from "html-react-parser";
 
 const CarDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -39,7 +40,6 @@ const CarDetail: React.FC = () => {
 
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -161,9 +161,8 @@ const CarDetail: React.FC = () => {
           customDot={<CustomDot onClick={() => {}} index={0} active={false} />}
         >
           {[...car.model_features].map((item, index) => (
-            <div className="carousel-card">
+            <div className="carousel-card" key={`feature-${index}`}>
               <img
-                key={index}
                 src={item.image}
                 alt={item.name}
                 className="img-fluid details-img"
@@ -173,41 +172,48 @@ const CarDetail: React.FC = () => {
             </div>
           ))}
           {[...car.model_highlights].map((item, index) => (
-            <div className="carousel-card">
+            <div className="carousel-card" key={`highlight-${index}`}>
               <img
-                key={index}
                 src={item.image}
                 alt={item.title}
                 className="img-fluid details-img"
               />
               <p>{item.title}</p>
-              <p>{item.content}</p>
+              <div>{parse(item.content)}</div>
             </div>
           ))}
         </Carousel>
       </div>
-      <div className="container mt-4 bg-light">
-        <div className="row align-items-center ">
-          <div className="col-md-6 text-center">
-            <h2>Título del Panel</h2>
-            <p>
+      <div className="container mt-5 mb-5">
+        <div className="row align-items-center">
+          <div className="col-md-6 text-left">
+            <h2 className="panel-title">Título del Panel</h2>
+            <p className="panel-description">
               Descripción del panel. Aquí puedes agregar más detalles o
               información relevante.
             </p>
           </div>
           <div className="col-md-6">
-            <img src={car.photo} alt={car.name} className="img-fluid" />
+            <img
+              src="/car-1.svg"
+              alt="Texto alternativo"
+              className="img-fluid"
+            />
           </div>
         </div>
       </div>
-      <div className="container mt-4">
+      <div className="container mt-5 mb-5">
         <div className="row align-items-center">
           <div className="col-md-6">
-            <img src={car.photo} alt={car.name} className="img-fluid" />
+            <img
+              src="/car-2.svg"
+              alt="Texto alternativo"
+              className="img-fluid"
+            />
           </div>
-          <div className="col-md-6 text-center">
-            <h2>Título del Panel</h2>
-            <p>
+          <div className="col-md-6 text-left">
+            <h2 className="panel-title">Título del Panel</h2>
+            <p className="panel-description">
               Descripción del panel. Aquí puedes agregar más detalles o
               información relevante.
             </p>

@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img
-              src="/Ego-Logo.svg"
+              src="/Ego-logo.svg"
               alt="Logo"
               width={38}
               height={40}
@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
           >
             Menú
             <img
-              src="/Menu.svg"
+              src="/menu.svg"
               alt="menu"
               height={18}
               className="d-inline-block align-text-top ps-2"
@@ -45,7 +45,9 @@ const Navbar: React.FC = () => {
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
-                    location.pathname === "/models" ? "active underline" : ""
+                    location.pathname === "/" || location.pathname === "/models"
+                      ? "active underline"
+                      : ""
                   }`}
                   to="/models"
                 >
@@ -71,7 +73,7 @@ const Navbar: React.FC = () => {
                 >
                   Menú
                   <img
-                    src="/Menu.svg"
+                    src="/menu.svg"
                     alt="menu"
                     height={18}
                     className="d-inline-block align-text-top ps-2"
