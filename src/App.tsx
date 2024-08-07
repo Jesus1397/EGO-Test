@@ -12,6 +12,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Navigate to="/models" replace />} />
         <Route path="/models" element={<Models />} />
         <Route path="/car/:id" element={<CarDetail />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <footer></footer>
     </div>
