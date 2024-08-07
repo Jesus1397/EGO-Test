@@ -222,4 +222,8 @@
   .panel-description {
     width: 100%;
   }
+
+  .panel-box {
+    margin-bottom: 78px;
+  }
 }

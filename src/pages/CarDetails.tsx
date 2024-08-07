@@ -110,87 +110,87 @@ const CarDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="carousel-container">
-        <Carousel
-          arrows
-          responsive={responsive}
-          showDots={true}
-          centerMode={true}
-          customLeftArrow={<CustomLeftArrow onClick={() => {}} />}
-          customRightArrow={<CustomRightArrow onClick={() => {}} />}
-          customDot={<CustomDot onClick={() => {}} index={0} active={false} />}
-          className="carousel-box"
-        >
-          {[...car.model_features].map((item, index) => (
-            <div className="carousel-card" key={`feature-${index}`}>
-              <img
-                src={item.image}
-                alt={item.name}
-                className="img-fluid carousel-img"
-              />
-              <p className="carousel-title">{item.name}</p>
-              <p className="carousel-description">{item.description}</p>
-            </div>
-          ))}
-          {[...car.model_highlights].map((item, index) => (
-            <div className="carousel-card" key={`highlight-${index}`}>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="img-fluid carousel-img"
-              />
-              <p className="carousel-title">{item.title}</p>
-              <div className="carousel-description">{parse(item.content)}</div>
-            </div>
-          ))}
-        </Carousel>
-      </div>
-      {car.model_highlights.map((highlight, index) => (
-        <div className="container" key={`highlight-section-${index}`}>
-          <div className="row align-items-center panel">
-            {index % 2 === 0 ? (
-              <>
-                <div className="col-md-6 d-flex justify-content-end d-md-none d-block">
-                  <img
-                    src="/car-1.svg"
-                    alt={highlight.title}
-                    className="img-fluid"
-                  />
-                </div>
-                <div className="col-md-6 text-left">
-                  <h2 className="panel-title">{highlight.title}</h2>
-                  <div className="panel-description">
-                    {parse(highlight.content)}
-                  </div>
-                </div>
-                <div className="col-md-6 d-flex justify-content-end d-md-block d-none">
-                  <img
-                    src="/car-1.svg"
-                    alt={highlight.title}
-                    className="img-fluid"
-                  />
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="col-md-6 d-flex justify-content-start">
-                  <img
-                    src="/car-2.svg"
-                    alt={highlight.title}
-                    className="img-fluid"
-                  />
-                </div>
-                <div className="col-md-6 text-left">
-                  <h2 className="panel-title">{highlight.title}</h2>
-                  <div className="panel-description">
-                    {parse(highlight.content)}
-                  </div>
-                </div>
-              </>
-            )}
+      <Carousel
+        arrows
+        responsive={responsive}
+        showDots={true}
+        centerMode={true}
+        customLeftArrow={<CustomLeftArrow onClick={() => {}} />}
+        customRightArrow={<CustomRightArrow onClick={() => {}} />}
+        customDot={<CustomDot onClick={() => {}} index={0} active={false} />}
+        className="carousel-box"
+      >
+        {[...car.model_features].map((item, index) => (
+          <div className="carousel-card" key={`feature-${index}`}>
+            <img
+              src={item.image}
+              alt={item.name}
+              className="img-fluid carousel-img"
+            />
+            <p className="carousel-title">{item.name}</p>
+            <p className="carousel-description">{item.description}</p>
           </div>
-        </div>
-      ))}
+        ))}
+        {[...car.model_highlights].map((item, index) => (
+          <div className="carousel-card" key={`highlight-${index}`}>
+            <img
+              src={item.image}
+              alt={item.title}
+              className="img-fluid carousel-img"
+            />
+            <p className="carousel-title">{item.title}</p>
+            <div className="carousel-description">{parse(item.content)}</div>
+          </div>
+        ))}
+      </Carousel>
+      <div className="panel-box">
+        {car.model_highlights.map((highlight, index) => (
+          <div className="container" key={`highlight-section-${index}`}>
+            <div className="row align-items-center panel">
+              {index % 2 === 0 ? (
+                <>
+                  <div className="col-md-6 d-flex justify-content-end d-md-none d-block">
+                    <img
+                      src="/car-1.svg"
+                      alt={highlight.title}
+                      className="img-fluid"
+                    />
+                  </div>
+                  <div className="col-md-6 text-left">
+                    <h2 className="panel-title">{highlight.title}</h2>
+                    <div className="panel-description">
+                      {parse(highlight.content)}
+                    </div>
+                  </div>
+                  <div className="col-md-6 d-flex justify-content-end d-md-block d-none">
+                    <img
+                      src="/car-1.svg"
+                      alt={highlight.title}
+                      className="img-fluid"
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="col-md-6 d-flex justify-content-start">
+                    <img
+                      src="/car-2.svg"
+                      alt={highlight.title}
+                      className="img-fluid"
+                    />
+                  </div>
+                  <div className="col-md-6 text-left">
+                    <h2 className="panel-title">{highlight.title}</h2>
+                    <div className="panel-description">
+                      {parse(highlight.content)}
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
