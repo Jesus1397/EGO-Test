@@ -1,3 +1,7 @@
+.model {
+  min-height: calc(100vh - 100px);
+}
+
 .model-title {
   font-size: 50px;
   font-weight: 700;
@@ -30,6 +34,9 @@
   line-height: 14px;
   letter-spacing: 0.08px;
   text-align: center;
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
 }
 
 .sort-dropdown {
@@ -37,4 +44,10 @@
   font-weight: 600;
   line-height: 14px;
   letter-spacing: 0.08px;
+}
+
+.filter-button.active {
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
 }
