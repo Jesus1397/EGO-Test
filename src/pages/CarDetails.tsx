@@ -99,18 +99,14 @@ const CarDetail: React.FC = () => {
   return (
     <>
       <div className="container car-details">
-        <div className="row car-principal">
+        <div className="row car-main">
           <div className="col-md-8">
             <img src={car.photo} alt={car.name} className="img-fluid car-img" />
           </div>
           <div className="col-md-4 car-description">
             <p className="details-segment">{car.segment}</p>
             <h1 className="details-title">{car.name}</h1>
-            <p className="details-description">
-              Texto lorem ipsum dolor sit amet orem ipsum dolor sit amet. lorem
-              ipsum dolor sit amet orem ipsum dolor sit amet lorem ipsum dolor
-              sit amet orem ipsum dolor sit amet.
-            </p>
+            <p className="details-description">{parse(car.description!)}</p>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ export interface Car {
   price: number;
   thumbnail?: string;
   photo?: string;
+  description?: string;
 }
 
 export interface CarCardProps {

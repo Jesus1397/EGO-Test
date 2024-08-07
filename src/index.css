@@ -21,3 +21,9 @@ footer {
   min-height: 100vh;
   max-height: 100vh;
 }
+
+@media (max-width: 992px) {
+  footer {
+    margin-top: 30px;
+  }
+}

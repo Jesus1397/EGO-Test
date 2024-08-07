@@ -5,7 +5,7 @@ import "../styles/CarCard.css";
 
 const CarCard: React.FC<CarCardProps> = ({ car }) => {
   return (
-    <div className="col-lg-3 col-md-6 col-sm-12 mb-5 d-flex align-items-stretch justify-content-center">
+    <div className="col-lg-3 col-md-6 col-sm-12 car-row d-flex align-items-stretch justify-content-center">
       <Link to={`/car/${car.id}`} className="text-style custom-link">
         <div className="card custom-card">
           <div className="card-body">

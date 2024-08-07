@@ -18,8 +18,7 @@ const Sidebar: React.FC<{ toggled: boolean; onClose: () => void }> = ({
           className="d-inline-block ms-2"
         />
       </button>
-      <br />
-      <ul className="principal">
+      <ul className="main">
         <li>
           <Link to="/models" onClick={onClose}>
             Modelos

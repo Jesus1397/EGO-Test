@@ -4,9 +4,10 @@
   right: -390px;
   width: 390px;
   height: 100%;
-  background-color: #fff;
+  background-color: #efeeef;
   transition: right 0.3s;
   z-index: 1000;
+  overflow-y: auto;
 }
 
 .sidebar.open {
@@ -25,7 +26,8 @@
   line-height: 17.07px;
 }
 
-.principal {
+.main {
+  background-color: #fff;
   list-style-type: none;
   padding: 0;
   text-align: right;
@@ -56,6 +58,13 @@
   z-index: 999;
 }
 
+.extras {
+  list-style-type: none;
+  text-align: right;
+  padding: 32px 20px 20px 20px;
+  margin-bottom: 0px;
+}
+
 @media (max-width: 992px) {
   .sidebar {
     top: 70px;
@@ -70,12 +79,4 @@
   .backdrop {
     display: none;
   }
-}
-
-.extras {
-  list-style-type: none;
-  text-align: right;
-  padding: 32px 20px 0 20px;
-  background-color: #efeeef;
-  height: 100%;
 }

@@ -7,14 +7,6 @@
   max-height: 70px;
 }
 
-@media (max-width: 992px) {
-  .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1020;
-  }
-}
-
 .navbar-brand,
 .navbar-collapse,
 .navbar-nav,
@@ -73,4 +65,21 @@
   outline: none;
   box-shadow: none;
   border: none;
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn.btn-menu.navbar-toggler {
+    padding-right: 0px;
+  }
 }

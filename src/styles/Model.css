@@ -141,3 +141,24 @@
   left: 0;
   right: auto;
 }
+
+@media (max-width: 992px) {
+  .model {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .model-title {
+    margin-top: 42px;
+    margin-bottom: 38px;
+  }
+
+  .filter-section {
+    margin-bottom: 64px;
+  }
+
+  .btn.sort-button {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
