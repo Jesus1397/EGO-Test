@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Models from "./pages/Models";
 import CarDetail from "./pages/CarDetails";
 
 const App: React.FC = () => {
+  useEffect(() => {
+    localStorage.clear();
+    sessionStorage.clear();
+
+    if ("caches" in window) {
+      caches.keys().then((names) => {
+        names.forEach((name) => {
+          caches.delete(name);
+        });
+      });
+    }
+  }, []);
+
   return (
     <div>
       <Navbar />

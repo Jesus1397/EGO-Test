@@ -1,5 +1,3 @@
-// src/components/FilterSection.tsx
-
 import React from "react";
 import { FilterSectionProps } from "../models/FilterModel";
 
@@ -12,6 +10,11 @@ const FilterSection: React.FC<FilterSectionProps> = ({
   setIsDropdownOpen,
   setIsFilterDropdownOpen,
 }) => {
+  const handleSortChangeAndClose = (sortOption: string) => {
+    handleSortChange(sortOption);
+    setIsDropdownOpen(false);
+  };
+
   return (
     <div className="filter-section">
       <div className="filter-box d-none d-md-block">
@@ -82,7 +85,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
           <li>
             <button
               className="dropdown-item"
-              onClick={() => handleSortChange("")}
+              onClick={() => handleSortChangeAndClose("")}
             >
               Nada
             </button>
@@ -90,7 +93,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
           <li>
             <button
               className="dropdown-item"
-              onClick={() => handleSortChange("price")}
+              onClick={() => handleSortChangeAndClose("price")}
             >
               De <strong>menor</strong> a <strong>mayor</strong> precio
             </button>
@@ -98,7 +101,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
           <li>
             <button
               className="dropdown-item"
-              onClick={() => handleSortChange("price-desc")}
+              onClick={() => handleSortChangeAndClose("price-desc")}
             >
               De <strong>mayor</strong> a <strong>menor</strong> precio
             </button>
@@ -106,7 +109,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
           <li>
             <button
               className="dropdown-item"
-              onClick={() => handleSortChange("year-newest")}
+              onClick={() => handleSortChangeAndClose("year-newest")}
             >
               Más <strong>nuevos</strong> primero
             </button>
@@ -114,7 +117,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
           <li>
             <button
               className="dropdown-item"
-              onClick={() => handleSortChange("year-oldest")}
+              onClick={() => handleSortChangeAndClose("year-oldest")}
             >
               Más <strong>viejos</strong> primero
             </button>
